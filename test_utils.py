@@ -17,7 +17,7 @@ def test_calculate_area_of_a_rectange_without_length():
     assert actual_result == expected_result
 
 
-def test_calculate_area_of_a_rectange_whithout_width():
+def test_calculate_area_of_a_rectange_without_width():
     length = 8
     width = 10
     expected_result = length * length
