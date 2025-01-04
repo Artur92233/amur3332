@@ -46,5 +46,6 @@ print(printing_second_template.format(
 )
 )
 
+
 print(datetime.now().strftime('%d-%m-%Y %H:%M:%S').rjust(80))
 print('\n\n')
