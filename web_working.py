@@ -19,9 +19,9 @@ for user in users:
     if user['age'] < 30:
         people_younger_thirty += 1
     if user['gender'] == 'female' and user['eyeColor'] == 'Green':
-        female_with_green_eyes = + 1
+        female_with_green_eyes += 1
     if user['address']['city'] == 'San Francisco':
-        people_live_in_san_francisco = + 1
+        people_live_in_san_francisco += 1
 
 print(f'Кількість людей яким менше тридцяти --> {people_younger_thirty}')
 print(f'Кількість жінок які мають зелені очі --> {female_with_green_eyes}')
