@@ -23,6 +23,7 @@ for user in users:
     if user['address']['city'] == 'San Francisco':
         people_live_in_san_francisco += 1
 
+
 print(f'Кількість людей яким менше тридцяти --> {people_younger_thirty}')
 print(f'Кількість жінок які мають зелені очі --> {female_with_green_eyes}')
 print(f'Кількість людей , що живуть у Сан Франциско --> {people_live_in_san_francisco}')
