@@ -1,4 +1,5 @@
 import logging
+import zoo_constant
 from pywebio.input import input as pw_input, NUMBER
 from pywebio.output import put_text
 
@@ -15,16 +16,16 @@ age_input = pw_input(label='Скількі тобі років?', required=True,
 logging.info(f'Людина написала скількі її років --> {age_input}')
 
 if age_input < 6:
-    price = 'Безкоштовно'
+    price = zoo_constant.discount_little_kids
 elif 6 <= age_input <= 12:
-    price = '50 грн (знижка 50%)'
+    price = zoo_constant.discount_big_kids
 elif 13 <= age_input <= 17:
-    price = '75 грн (знижка 25%)'
+    price = zoo_constant.discount_teenager
 elif 18 <= age_input < 60:
-    price = '100 грн (повна вартість)'
+    price = zoo_constant.discount_adults
 elif age_input >= 60:
-    price = '70 грн (знижка 30%)'
+    price = zoo_constant.discount_elderly
 else:
     price = 'Неправильно введено вік'
 
-put_text(f"Фінальна вартість квитка: {price}")
+put_text(f"Фінальна вартість квитка: {price} грн")
