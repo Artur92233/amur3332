@@ -13,7 +13,7 @@ response_json = response.json()
 
 people = response_json['people']
 how_many_people_in_iss = 0
-pass
+
 
 for human in people:
     if human['craft'] == 'ISS':
