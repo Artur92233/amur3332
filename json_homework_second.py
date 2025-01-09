@@ -1,25 +1,25 @@
 import requests
 
+
 url = 'http://api.open-notify.org/astros.json'
 
-params = {
-    'limits' : 12
-}
-
+params = {}
 
 response = requests.get(url, params=params)
 response_json = response.json()
 
 
 people = response_json['people']
-how_many_people_in_iss = 0
+
+
+how_many_people_in_iss = []
 
 
 for human in people:
     if human['craft'] == 'ISS':
-        how_many_people_in_iss += 1
+        how_many_people_in_iss.append(human['name'])
 
 
+result = ', '.join(how_many_people_in_iss)
 
-result = f'На момент запуску коду знаходяться на міжнародній космічній станції --> {how_many_people_in_iss} людей.'
 print(result)
