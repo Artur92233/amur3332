@@ -1,59 +1,7 @@
 import json
+import requests
 
-data = [
-    {
-        "craft": "ISS",
-        "name": "Oleg Kononenko"
-    },
-    {
-        "craft": "ISS",
-        "name": "Nikolai Chub"
-    },
-    {
-        "craft": "ISS",
-        "name": "Tracy Caldwell Dyson"
-    },
-    {
-        "craft": "ISS",
-        "name": "Matthew Dominick"
-    },
-    {
-        "craft": "ISS",
-        "name": "Michael Barratt"
-    },
-    {
-        "craft": "ISS",
-        "name": "Jeanette Epps"
-    },
-    {
-        "craft": "ISS",
-        "name": "Alexander Grebenkin"
-    },
-    {
-        "craft": "ISS",
-        "name": "Butch Wilmore"
-    },
-    {
-        "craft": "ISS",
-        "name": "Sunita Williams"
-    },
-    {
-        "craft": "Tiangong",
-        "name": "Li Guangsu"
-    },
-    {
-        "craft": "Tiangong",
-        "name": "Li Cong"
-    },
-    {
-        "craft": "Tiangong",
-        "name": "Ye Guangfu"
-    }
-    ,
-    {"number": 12,
-     "message": "success"
-     }
-]
+data =
 
 with open('json_data.json', mode='w', encoding='utf-8') as file:
     json.dump(data, file, indent=4)
