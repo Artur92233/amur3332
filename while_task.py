@@ -1,5 +1,4 @@
-import decimal
-def break_if_number_zero(summ: int ) -> int:
+def break_if_number_zero(summ: int) -> int:
     while True:
         number = int(input('Введіть число: '))
         summ += number
