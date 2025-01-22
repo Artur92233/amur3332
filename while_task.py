@@ -1,10 +1,11 @@
-def break_if_number_zero(summ: int) -> int:
+import decimal
+def break_if_number_zero(summ: int ) -> int:
     while True:
         number = int(input('Введіть число: '))
         summ += number
         if number == 0:
             print(f'Сума чисел: {summ}')
-            return
+            return summ
 
 
 break_if_number_zero(summ=0)
