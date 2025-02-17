@@ -1,4 +1,4 @@
-from abc import abstractmethod , ABC
+from abc import abstractmethod, ABC
 
 
 class Vehicle(ABC):
@@ -42,7 +42,7 @@ car1 = Car(brand="Toyota", model="Corolla", num_doors=4)
 car2 = Car(brand="BMW", model="X5", num_doors=4)
 
 bike1 = Bike(brand="Giant", model="Escape 3", type="міський")
-bike2 = Bike(brand="Trek", model="Marlin 8",type="гірський")
+bike2 = Bike(brand="Trek", model="Marlin 8", type="гірський")
 
 truck1 = Truck(brand="Volvo", model="FH16", capacity=20)
 truck2 = Truck(brand="Scania", model="R500", capacity=25)
