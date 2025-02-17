@@ -1,4 +1,7 @@
-class Vehicle:
+from abc import abstractmethod , ABC
+
+
+class Vehicle(ABC):
     def __init__(self, brand, model):
         self.brand = brand
         self.model = model
@@ -12,6 +15,7 @@ class Car(Vehicle):
         super().__init__(brand, model)
         self.num_doors = num_doors
 
+    @abstractmethod
     def info(self):
         print(f"Автомобіль: {self.brand} {self.model}, Кількість дверей: {self.num_doors}")
 
