@@ -6,6 +6,7 @@ class Vehicle(ABC):
         self.brand = brand
         self.model = model
 
+    @abstractmethod
     def info(self):
         print(f"Транспортний засіб: {self.brand}  {self.model}")
 
@@ -15,7 +16,7 @@ class Car(Vehicle):
         super().__init__(brand, model)
         self.num_doors = num_doors
 
-    @abstractmethod
+
     def info(self):
         print(f"Автомобіль: {self.brand} {self.model}, Кількість дверей: {self.num_doors}")
 
