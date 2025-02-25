@@ -1,27 +1,66 @@
+from pprint import pprint
+
+from bson import ObjectId
+from oauthlib.uri_validate import query
+
 from config import uri
 
 from pymongo.mongo_client import MongoClient
 
 client = MongoClient(uri)
 
-db = client.shop
+db = client.store
 
-collection_laptops_initial = db.laptops
+collection_store = db.products
 
-laptops_to_add =[
-    {'brand': 'Apple','model': 'MacBook Pro 16','price': 2500,'year': 2023,'specs': {'cpu': 'M2 Max', 'ram': '32GB', 'storage': '1TB SSD'}},
-    {'brand': 'Dell','model': 'XPS 15','price': 1800,'year': 2022,'specs': {'cpu': 'Intel i7-12700H', 'ram': '16GB', 'storage': '512GB SSD'}},
-    {'brand': 'ASUS','model': 'ROG Zephyrus G14','price': 2000,'year': 2023,'specs': {'cpu': 'AMD Ryzen 9 6900HS', 'ram': '32GB', 'storage': '1TB SSD'}},
-    {'brand': 'Lenovo','model': 'ThinkPad X1 Carbon','price': 2200,'year': 2023,'specs': {'cpu': 'Intel i7-1365U', 'ram': '16GB', 'storage': '1TB SSD'}}
+products_to_add = [
+    {"name": "Laptop", "price": 50000, "quantity": 5, "category": "Electronics"},
+    {"name": "Sneakers", "price": 7000, "quantity": 12, "category": "Clothing"},
+    {"name": "Book", "price": 1200, "quantity": 20, "category": "Books"},
+    {"name": "Headphones", "price": 3500, "quantity": 15, "category": "Electronics"},
+    {"name": "Guitar", "price": 15000, "quantity": 3, "category": "Musical Instruments"},
+    {"name": "Kettle", "price": 2500, "quantity": 10, "category": "Home Appliances"}
+
 ]
 
+collection_store.insert_many(products_to_add)
 
-collection_laptops_initial.insert_many(laptops_to_add)
+all_products = collection_store.find()
+for product in all_products:
+    pprint(product)
 
-first_laptop = collection_laptops_initial.find_one()
+wanted_name_milk = collection_store.find_one({"name": "Laptop"})
+print(wanted_name_milk)
 
-wanted_laptop = collection_laptops_initial.find_one({'price': 2000})
-print(wanted_laptop)
+query = {'price': {'$gt': 50}}
+all_products = collection_store.find(query)
+for product in all_products:
+    pprint(product)
 
-wanted_laptop_brand_and_model = collection_laptops_initial.find_one({'brand': 'Apple','model': 'MacBook Pro 16'})
-print(wanted_laptop_brand_and_model)
+query_one = {"name": {'$regex': 'S*'}}
+all_products = collection_store.find(query_one)
+for product in all_products:
+    pprint(product)
+
+query_two = {}
+all_products = collection_store.find(query_two).limit(3).sort("quantity", -1)
+for product in all_products:
+    pprint(product)
+
+query_three = {"category": "Clothing"}
+new_data = {"$set": {"category": "Electronics"}}
+collection_store.update_one(query_three, new_data)
+
+query_four = {}
+new_dataa = {"$inc": {"quantity": 5}}
+collection_store.update_one(query_four, new_dataa)
+
+query_five = {}
+neww_dataa = {"$mul": {"price": 0.5}}
+collection_store.update_one(query_five, neww_dataa)
+
+query_six = {"quantity": 0}
+operation = {"$unset": {"warranty": 1}}
+
+query_seven = {"_id": ObjectId("67b749a782e872aafb776853")}
+operation_one = {"$unset": {"warranty": 1}}
